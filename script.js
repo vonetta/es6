@@ -63,3 +63,88 @@ areas.push(image.height * image.width)
 images.forEach(calcArea);
 
 document.write(`<br>Calculating the areas for the images ${areas}`)
+
+//map
+
+var numbers = [1,2,3];
+var doubledNumbers = [];
+
+for(var i = 0; i < numbers.length; i++){
+doubledNumbers.push(numbers[1] * 2);
+}
+
+var doubled = numbers.map(function(number){
+    return number * 2;
+});
+
+doubled;
+doubledNumbers;
+
+var cars = [
+    {
+        model: 'Buick',
+        price: 'Cheap'
+    },
+    {
+        model: 'Camaro',
+        price: 'expensive'
+    }
+];
+
+var prices = cars.map(function(car){
+return car.price;
+})
+
+console.log(prices);
+
+var images = [
+    { height: '34px', width: '39px' },
+    { height: '54px', width: '19px' },
+    { height: '83px', width: '75px' },
+  ];
+  
+  var heights = images.map(function(image){
+      return image.height;
+  });
+
+  console.log(heights);
+
+  var trips = [
+    { distance: 34, time: 10 },
+    { distance: 90, time: 50 },
+    { distance: 59, time: 25 }
+  ];
+  
+  var speeds = trips.map(function(trip){
+      return trip.distance/ trip.time
+  });
+
+  console.log(speeds);
+
+  var paints = [ { color: 'red' }, { color: 'blue' }, { color: 'yellow' }];
+
+
+  function pluck(array, property){
+
+    return paint['color']
+}
+
+var values = paints.map(pluck)
+
+
+  pluck(paints, 'color');
+
+
+
+  var paints = [ { color: 'red' }, { color: 'blue' }, { color: 'yellow' }];
+  
+function pluck(array, property) {
+    
+var values = paints.map(function(paint){
+    return paint['color']
+})
+return values;
+}
+
+ var result = pluck(paints, 'color');
+
