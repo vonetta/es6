@@ -145,3 +145,5 @@ return values;
 
  var result = pluck(paints, 'color');
 
+ 
+
