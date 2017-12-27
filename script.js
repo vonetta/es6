@@ -131,10 +131,7 @@ var images = [
 
 var values = paints.map(pluck)
 
-
   pluck(paints, 'color');
-
-
 
   var paints = [ { color: 'red' }, { color: 'blue' }, { color: 'yellow' }];
   
