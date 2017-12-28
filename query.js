@@ -72,3 +72,10 @@ var users = [
 return account.balance === 12
 
   });
+
+  function findWhere(array, criteria) {
+    return array.find(function(arr) {
+        var critKey = Object.keys(criteria);
+        return arr[critKey] === criteria[critKey];
+    });
+  }
