@@ -1,4 +1,3 @@
-
 //es6
 
 const name = 'Jane';
@@ -14,12 +13,12 @@ title = 'senior software engineer'
 hourlyWage = 45;
 
 
-function count (targetString){
+function count(targetString) {
     const characters = ['a', 'e', 'i', 'o', 'u'];
     let number = 0;
 
-    for(let i = 0; i < targetString.length; i++){
-        if(characters.includes(targetString[i])){
+    for (let i = 0; i < targetString.length; i++) {
+        if (characters.includes(targetString[i])) {
             number++
         }
     }
@@ -28,35 +27,127 @@ function count (targetString){
 
 console.log(count('fkjdslafjilueoiruio'))
 
-const myName ="vonetta";
+const myName = "vonetta";
 let age = 27;
 const dateOfBirth = "12/08/1990";
 
-const statuses = [ 
-    { code: 'OK', response: 'Request successful' },
-    { code: 'FAILED', response: 'There was an error with your request' },
-    { code: 'PENDING', response: 'Your reqeust is still pending' }
-  ];
-  let message = '';
-  const currentCode = 'OK';
-  
-  for (let i = 0; i < statuses.length; i++) {
-    if (statuses[i].code === currentCode) {
-      message = statuses[i].response;
+const statuses = [{
+        code: 'OK',
+        response: 'Request successful'
+    },
+    {
+        code: 'FAILED',
+        response: 'There was an error with your request'
+    },
+    {
+        code: 'PENDING',
+        response: 'Your reqeust is still pending'
     }
-  }
+];
+let message = '';
+const currentCode = 'OK';
 
-  function getMessage(){
-      const year = new Date().getFullYear();
+for (let i = 0; i < statuses.length; i++) {
+    if (statuses[i].code === currentCode) {
+        message = statuses[i].response;
+    }
+}
+
+function getMessage() {
+    const year = new Date().getFullYear();
 
     //  return "The year is " + year;
     //using a template string
-      return `The year is ${year}`
-  }
+    return `The year is ${year}`
+}
 
-  console.log(getMessage())
+console.log(getMessage())
 
-  //arrow functions
-  const add = (a,b) =>  a + b;
+//arrow functions
+const add = (a, b) => a + b;
 
-  add(1,2);
+add(1, 2);
+
+const double = number => 2 * number;
+
+double(8)
+
+
+const numbers = [1, 2, 3];
+
+numbers.map(function (number) {
+    return 2 * number;
+})
+
+numbers.map(number => 2 * number);
+
+const team = {
+    members: ["jane", "bill"],
+    teamName: 'Super Squad',
+    teamSummary: function () {
+        return this.members.map((member) => {
+            return `${member} is on team ${this.teamName}`
+        });
+    }
+};
+
+console.log(team.teamSummary())
+
+const fibonacci = nS => {
+    if (n < 3) return 1;
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+const profile = {
+    name: 'Alex',
+    getName: function () {
+        return this.name
+    }
+};
+
+
+//objects
+
+function createBookShop(inventory) {
+    return {
+        inventory,
+        inventoryValue() {
+            return this.inventory.reduce((total, book) => total + book.price, 0)
+        },
+        priceForTitle(title) {
+            return this.inventory.find(book => book.title === title).price
+        }
+    };
+
+}
+
+const inventory = [{
+        title: 'harry potter',
+        price: 10
+    },
+    {
+        title: 'eloquent javascript',
+        price: 15
+    }
+];
+
+const bookShop = createBookShop(inventory);
+
+console.log(bookShop.inventoryValue());
+console.log(bookShop.priceForTitle('harry potter'));
+
+
+function saveFile() {
+    $.ajax({
+        url,
+        data,
+        method: "POST",
+    });
+}
+
+const url = "http://fileupload.com";
+const data = {
+    color: 'red'
+};
+
+saveFile(url, data)
