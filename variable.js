@@ -55,8 +55,6 @@ for (let i = 0; i < statuses.length; i++) {
 
 function getMessage() {
     const year = new Date().getFullYear();
-
-    //  return "The year is " + year;
     //using a template string
     return `The year is ${year}`
 }
@@ -136,7 +134,6 @@ const bookShop = createBookShop(inventory);
 console.log(bookShop.inventoryValue());
 console.log(bookShop.priceForTitle('harry potter'));
 
-
 const red = '#ff0000';
 const blue = '#0000ff';
 
@@ -165,32 +162,56 @@ const Car = {
     }
 };
 
-makeAjaxRequest('google.com');
-makeAjaxRequest('google.com', 'GET')
-
-
-function User(id) {
-    this.id = id;
-}
-
-function generateId() {
-    return Math.random() * 999999999;
-}
-
-function createAdminUser(user = new User(generateId())) {
-    user.admin = true;
-    return user;
-}
-
-//createAdminUser(user);
-
 function sum(a = 0, b = 0) {
     return a + b;
 }
 
 function addOffset(style = {}) {
-
     style.offset = '10px';
-
     return style;
 }
+
+//rest and spread
+
+function addNumbers (...numbers) {
+    return numbers.reduce((sum, number) =>{
+return sum + number;
+    }, 0);
+}
+
+console.log(addNumbers(1,2,3,4,5,6,7,9,432,4,30817))
+
+
+const defaultColors = ['red', 'green'];
+
+const userFavoriteColors = ['orange', 'yellow'];
+
+const fallColors = ['fire red', 'fall orange'];
+
+//defaultColors.concat(userFavoriteColors);
+
+console.log([ 'blue', ...fallColors,...defaultColors, ...userFavoriteColors]);
+
+function validateShoppingList(...items){
+if(items.indexOf('milk'< 0)){
+    return ['milk', ...items]
+}
+return items;
+}
+console.log(validateShoppingList('oranges', 'bread', 'eggs'))
+
+const MathLibrary = {
+calculateProduct(...rest){
+    console.log('Please use the multiply method instead');
+    return this.multiply(...rest)
+},
+multiply(a,b){
+    return a * b;
+}
+
+};
+
+function unshift(array,...rest) {
+   // return [a, b, c, d, e].concat(array);
+    return [...rest,...array]
+  }
