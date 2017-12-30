@@ -50,7 +50,7 @@ const statuses = [
       const year = new Date().getFullYear();
 
     //  return "The year is " + year;
-
+    //using a template string
       return `The year is ${year}`
   }
 
