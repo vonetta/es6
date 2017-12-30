@@ -48,5 +48,50 @@ function Field(value){
     this.value = value;
 }
 
+Field.prototype.validate = function(){
+    return this.value.length > 0;
+}
+
 var username = new Field("2Cool");
 var password = new Field("my_password");
+
+var birthday = new Field("10/01/2010");
+
+console.log(username.validate() && password.validate());
+
+
+//refactor
+
+var fields = [username, password, birthday];
+var formIsValid = fields.every(function(field){
+    return field.validate();
+});
+
+if (formIsValid){
+    //allow user to submit
+}
+else{
+    //show an error message
+}
+
+var users = [
+    { id: 21, hasSubmitted: true },
+    { id: 62, hasSubmitted: false },
+    { id: 4, hasSubmitted: true }
+  ];
+  
+  var hasSubmitted = users.every(function(user){
+      return user.hasSubmitted === true;
+  });
+
+  var requests = [
+    { url: '/photos', status: 'complete' },
+    { url: '/albums', status: 'pending' },
+    { url: '/users', status: 'failed' }
+  ];
+  
+  var inProgress = requests.some(function(request){
+ return request.status === 'pending'
+  });
+
+  console.log(inProgress)
