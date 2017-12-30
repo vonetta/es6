@@ -137,17 +137,60 @@ console.log(bookShop.inventoryValue());
 console.log(bookShop.priceForTitle('harry potter'));
 
 
-function saveFile() {
-    $.ajax({
-        url,
-        data,
-        method: "POST",
-    });
-}
+const red = '#ff0000';
+const blue = '#0000ff';
 
-const url = "http://fileupload.com";
-const data = {
-    color: 'red'
+const COLORS = {
+    red,
+    blue
 };
 
-saveFile(url, data)
+const canvasDimensions = function (width, initialHeight) {
+    const height = initialHeight * 9 / 16;
+    return {
+        width,
+        height
+    };
+}
+
+const color = 'red';
+
+const Car = {
+    color,
+    drive() {
+        return 'Vroom!';
+    },
+    getColor() {
+        return this.color;
+    }
+};
+
+makeAjaxRequest('google.com');
+makeAjaxRequest('google.com', 'GET')
+
+
+function User(id) {
+    this.id = id;
+}
+
+function generateId() {
+    return Math.random() * 999999999;
+}
+
+function createAdminUser(user = new User(generateId())) {
+    user.admin = true;
+    return user;
+}
+
+//createAdminUser(user);
+
+function sum(a = 0, b = 0) {
+    return a + b;
+}
+
+function addOffset(style = {}) {
+
+    style.offset = '10px';
+
+    return style;
+}
